@@ -1,5 +1,6 @@
 #include "func.c"
 #include "func.h"
+#include "menu.h"
 #include <stdio.h>
 #include <string.h>
 
