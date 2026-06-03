@@ -1,37 +1,31 @@
 #include <stdio.h>
-
-
-int calcular_media(float *nota, int quantidade)
-{
-    float n, media, soma = 0;
-    float maior, menor;
-
-    for(int i = 1; i <= 10; i++)
-    {
-        scanf("%f", &n);
-        soma += n;
-        if(i == 1)
-        {
-            maior = n;
-            menor = n;
-        }
-        else
-        {
-            if(n > maior)
-                maior = n;
-            if(n < menor)
-                menor = n;
-        }
-    }
-
-    media = soma / 10;
-
-    return media;
-}
-
 #include <stdlib.h>
 #include <string.h> 
 #include "func.h"
+
+float calcular_media(Lista_Dupla *lista)
+{
+
+    if (lista->inicio == NULL) {
+        printf("Lista vazia!\n");
+        return 0;
+    }
+    no *temp = lista->inicio;
+    float soma = 0;
+    int count = 0;
+
+    while (temp != NULL) {
+        soma += temp->nota;
+        count++;
+        temp = temp->prox;
+    }
+
+    float media = 0;
+
+    if (count > 0) media = soma / count;
+
+    return media;
+}
 
 void inicializar_lista(Lista_Dupla *lista) {
     lista->inicio = NULL;
